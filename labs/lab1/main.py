@@ -4,7 +4,7 @@ animals = [
     ['goose']
 ]
 
-def print_neighbours(group, index):
+def print_neighbours(group: int, index: int) -> None:
     if group >= len(animals):
         print(f'Incorrect group')
         return
