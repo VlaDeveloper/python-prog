@@ -1,10 +1,9 @@
 class TaskTracker:
-	def __init__(self, taskList:list[str]=['task 1', 'task 2'], taskComplete:tuple[str]=('done', 'not_done'),
+	def __init__(self, taskList:list[str]=['task 1', 'task 2'],
 							completedTasks:list[bool]=[True, False],
 							taskListCategories:list[str]=['category 1', ''],
 							taskCategories:list[str]=['category 1', 'category 2']) -> None:
 		self.taskList = taskList
-		self.taskComplete = taskComplete
 		self.taskCategories = taskCategories
 		self.taskListCategories = taskListCategories
 		self.completedTasks = completedTasks
@@ -12,10 +11,12 @@ class TaskTracker:
 		user_task = input('Enter the task: ')
 		self.taskList.append(user_task)
 		self.completedTasks.append(False)
+		self.taskListCategories.append('')
 		print(f'The task with the name {user_task} is successfuly added!')
 	def print_tasks(self) -> None:
 		a = range(len(self.taskList))
 		print(f'You have {len(self.taskList)} tasks:')
+		print(self.taskList)
 		for i in a:
 			res_complete = "x" if self.completedTasks[i] else " "
 			res_category = f'#{self.taskListCategories[i]}' if self.taskListCategories[i] != '' else ""

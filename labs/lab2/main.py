@@ -1,11 +1,16 @@
 # the future second lab
+import json
 from taskTracker import TaskTracker
 
-tt = TaskTracker()
+f = open("tt.json", "r")
+r = f.read()
+y = json.loads(r)
+
+tt = TaskTracker(y["tasks"], y["completedTasks"], y["taskListCategories"], y["taskCategories"])
 
 choice = -1
 
-while(choice != 10):
+while(choice != 7):
 	print("""
 	Pick your choice:
 	1. Add a task
@@ -14,7 +19,7 @@ while(choice != 10):
 	4. Print categories
 	5. Complete the task
 	6. Assign the category
-	10. Quit
+	7. Quit
 			""")
 	choice = int(input('Enter the number of command: '))
 	print()
@@ -31,3 +36,16 @@ while(choice != 10):
 			tt.complete_task()
 		case 6:
 			tt.assign_category()
+
+x = {
+	"tasks": tt.taskList,
+	"completedTasks": tt.completedTasks,
+	"taskListCategories": tt.taskListCategories,
+	"taskCategories": tt.taskCategories
+}
+
+y = json.dumps(x)
+
+f = open("tt.json", "w")
+f.write(y)
+f.close()
