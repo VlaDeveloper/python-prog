@@ -1,4 +1,3 @@
-# the future second lab
 import json
 from taskTracker import TaskTracker
 

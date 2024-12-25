@@ -16,7 +16,7 @@ class TaskTracker:
 	def print_tasks(self) -> None:
 		a = range(len(self.taskList))
 		print(f'You have {len(self.taskList)} tasks:')
-		print(self.taskList)
+		# print(self.taskList)
 		for i in a:
 			res_complete = "x" if self.completedTasks[i] else " "
 			res_category = f'#{self.taskListCategories[i]}' if self.taskListCategories[i] != '' else ""
